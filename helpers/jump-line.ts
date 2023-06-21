@@ -24,7 +24,7 @@ function jump(array: string): string {
     if(word.toLowerCase() === "select") {
       arrayUnitWord.push("SELECT")
       arrayUnitWord.push("\n")
-      arrayUnitWord.push(" ", "")
+      arrayUnitWord.push(" ")
       return
     }
 
@@ -64,7 +64,7 @@ function jump(array: string): string {
     if(word.toLowerCase() === "by") {
       arrayUnitWord.push("BY")
       arrayUnitWord.push("\n")
-      arrayUnitWord.push(" ", "")
+      arrayUnitWord.push(" ")
       return
     }
 

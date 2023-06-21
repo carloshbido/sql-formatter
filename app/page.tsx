@@ -17,7 +17,6 @@ export default function Home() {
     let queryUpdated: string | string[] = TabOnFirstItem(query);
     queryUpdated = jumpLine(queryUpdated);
 
-    console.log(queryUpdated);
     const array = queryUpdated;
     setQuery(array);
   }
@@ -27,19 +26,22 @@ export default function Home() {
   }
 
   return (
-    <main className="grid grid-cols-1 place-content-center m-4">
-      <form className="bg-red-100 p-3" onSubmit={handleSubmit}>
+    <main className="grid grid-cols-1 place-content-center mx-11 my-4">
+      <form className="bg-emerald-50 p-3 rounded-lg drop-shadow-sm" onSubmit={handleSubmit}>
         <div className="flex flex-col justify-items-start align-middle">
-          <label htmlFor="sqlquery" className="mb-2">Query</label>
+          <div className="flex justify-between items-center mb-2">
+            <label htmlFor="sqlquery">Insert query below</label>
+            <span className="bg-emerald-300 px-6 py-2 rounded-lg cursor-pointer">Copy</span>
+          </div>
           <textarea
-            className="outline-slate-300"
+            className="outline-slate-300 p-3"
             cols={10}
-            rows={10}
+            rows={15}
             name="sqlquery" 
             value={query}
             onChange={handleSetQuery}>
           </textarea>
-          <button onClick={() => {}} className="mt-5 bg-slate-700 text-base text-white p-2">Beautiful format</button>
+          <button onClick={() => {}} className="mt-5 bg-slate-700 text-base text-white p-2 rounded-lg">Beautiful format</button>
         </div>
       </form>
     </main>
