@@ -12,9 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={"relative box-border " + inter.className}>
         <Nav/>
         {children}
+        <div
+          className="absolute bottom-0 left-1 right-1" 
+          id="cookieportal"
+        />
       </body>
     </html>
   )
