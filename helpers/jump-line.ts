@@ -9,9 +9,7 @@ function jump(array: string): string {
 
   arraySplittedLetter.forEach((letter: string): void => {
     if(letter === ",") {
-      arrayUnitLetter.push(",")
-      arrayUnitLetter.push("\n")
-      arrayUnitLetter.push("\t")
+      arrayUnitLetter.push(", ", "\n", " ",  "\t", "",)
       return
     }
     arrayUnitLetter.push(letter)
@@ -65,6 +63,20 @@ function jump(array: string): string {
       arrayUnitWord.push("BY")
       arrayUnitWord.push("\n")
       arrayUnitWord.push(" ")
+      return
+    }
+
+    if(word.toLowerCase() === "when") {
+      arrayUnitWord.push("\n")
+      arrayUnitWord.push("\t", "")
+      arrayUnitWord.push("when")
+      return
+    }
+
+    if(word.toLowerCase() === "else") {
+      arrayUnitWord.push("\n")
+      arrayUnitWord.push("\t")
+      arrayUnitWord.push("else")
       return
     }
 
