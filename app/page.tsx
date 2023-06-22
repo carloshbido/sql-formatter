@@ -11,12 +11,14 @@ export default function Home() {
   const [query, setQuery] = useState("")
   
   function handleSubmit(event: any) {
-    event.preventDefault()
+    event.preventDefault();
 
     if(query === "") return
     if(!query) return 
 
-    let queryUpdated: string | string[] = TabOnFirstItem(query);
+    let queryUpdated: string | string[] = "";
+
+    queryUpdated = TabOnFirstItem(query);
     queryUpdated = jumpLine(queryUpdated);
 
     const array = queryUpdated;
@@ -24,12 +26,11 @@ export default function Home() {
   }
 
   function handleSetQuery(event: React.ChangeEvent<HTMLTextAreaElement>) {
-    setQuery(event.target.value)
+    setQuery(event.target.value);
   }
 
   function handleCopyClipboard() {
-    navigator.clipboard.writeText(query)
-    console.log("Text copied")
+    navigator.clipboard.writeText(query);
   }
 
   return (
@@ -56,12 +57,12 @@ export default function Home() {
           <div className="flex justify-end items-center mt-4 gap-3">
             <button 
               onClick={() => {}} 
-              className="bg-slate-700 text-white px-6 py-2 rounded-lg hover:opacity-90 ease-in-out duration-100"
+              className="bg-slate-700 text-white px-6 py-2 rounded-lg hover:bg-opacity-90 ease-in-out duration-100"
             >
-              Apply
+              APPLY FORMATTER
             </button>
             <span 
-              className="bg-emerald-900 text-white px-6 py-2 rounded-lg cursor-pointer hover:opacity-90 ease-in-out duration-100"
+              className="bg-emerald-900 text-white px-6 py-2 rounded-lg cursor-pointer hover:bg-opacity-90 ease-in-out duration-100"
               onClick={handleCopyClipboard}
             >
               Copy
