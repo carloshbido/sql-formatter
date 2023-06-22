@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav/>
         {children}
         <div
-          className="absolute bottom-0 left-1 right-1" 
+          className="fixed bottom-2 left-2 right-2" 
           id="cookieportal"
         />
       </body>
