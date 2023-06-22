@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import { FaCopy, FaCheck } from 'react-icons/fa';
+
 
 import { TabOnFirstItem } from "@/helpers/tab-first-item"
 import jumpLine from "@/helpers/jump-line"
@@ -9,6 +11,7 @@ import Cookie from "@/components/Cookie"
 
 export default function Home() {
   const [query, setQuery] = useState("")
+  const [copied, setCopied] = useState(false)
   
   function handleSubmit(event: any) {
     event.preventDefault();
@@ -31,6 +34,8 @@ export default function Home() {
 
   function handleCopyClipboard() {
     navigator.clipboard.writeText(query);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 4000);
   }
 
   return (
@@ -62,10 +67,10 @@ export default function Home() {
               APPLY FORMATTER
             </button>
             <span 
-              className="bg-emerald-900 text-white px-6 py-2 rounded-lg cursor-pointer hover:bg-opacity-90 ease-in-out duration-100"
+              className="bg-emerald-900 text-white px-6 py-3 rounded-lg cursor-pointer ease-in-out duration-500 hover:bg-opacity-90"
               onClick={handleCopyClipboard}
             >
-              Copy
+              {copied ? <FaCheck/> : <FaCopy />}
             </span>
           </div>
         </div>
