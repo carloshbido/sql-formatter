@@ -5,7 +5,7 @@ function Nav() {
         <span className="text-emerald-700 text-xl font-bold">SQL</span> 
         <span className="text-xl font-bold">Formatter</span> 
       </div>
-      <div className="cursor-pointer">Menu</div> 
+      {/* <div className="cursor-pointer">---</div>  */}
     </div>
   )
 }
