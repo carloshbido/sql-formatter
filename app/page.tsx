@@ -3,9 +3,11 @@
 import { useState } from "react"
 import { FaCopy, FaCheck } from 'react-icons/fa';
 
-
 import { TabOnFirstItem } from "@/scripts/tab-first-item"
 import jumpLine from "@/scripts/jump-line"
+
+import connectDb from "@/config/dbConn";
+connectDb().then(res => console.log(res)).catch(err => console.log(err))
 
 import Cookie from "@/components/Cookie"
 
@@ -38,10 +40,11 @@ export default function Home() {
     setTimeout(() => setCopied(false), 4000);
   }
 
+
   return (
-    <main className="grid grid-cols-1 place-content-center mx-11 my-4">
-      <form className="bg-emerald-50 p-3 rounded-lg drop-shadow-sm" onSubmit={handleSubmit}>
-        <div className="flex flex-col justify-items-start align-middle">
+    <main className="flex items-center justify-between py-3 max-w-7xl m-auto px-5 xl:px-0">
+      <form className="bg-emerald-50 p-3 rounded-lg drop-shadow-sm w-full" onSubmit={handleSubmit}>
+        <div className="flex flex-col justify-items-start">
           <div className="flex justify-between items-center mb-2">
             <label htmlFor="sqlquery">Insert query below</label>
             <span 
