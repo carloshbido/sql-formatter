@@ -4,8 +4,8 @@ import { useState } from "react"
 import { FaCopy, FaCheck } from 'react-icons/fa';
 
 
-import { TabOnFirstItem } from "@/helpers/tab-first-item"
-import jumpLine from "@/helpers/jump-line"
+import { TabOnFirstItem } from "@/scripts/tab-first-item"
+import jumpLine from "@/scripts/jump-line"
 
 import Cookie from "@/components/Cookie"
 
