@@ -54,7 +54,7 @@ export default function Home() {
           </div>
           <textarea
             className="outline-slate-300 p-3 text-xs rounded-lg"
-            rows={25}
+            rows={20}
             name="sqlquery" 
             value={query}
             onChange={handleSetQuery}>
