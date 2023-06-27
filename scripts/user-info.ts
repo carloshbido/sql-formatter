@@ -19,25 +19,8 @@ async function userInfo() {
 
   await getLatLong 
   //TODO: Cadastra no banco de dados
-  console.log("No Granted", language, platform, enabledCookie, positionUser, sizeScreen);
+  localStorage.setItem("userData-formatter", JSON.stringify({language, platform, enabledCookie, positionUser, sizeScreen}))
 
-// if (navigator.permissions && navigator.permissions.query) {
-//   navigator.permissions.query({ name: "geolocation" })
-//     .then(permissionStatus => {
-//       if(permissionStatus.state === "granted") {
-//          navigator.geolocation?.getCurrentPosition(position => {
-//           positionUser.latitude = position.coords.latitude
-//           positionUser.longitude = position.coords.latitude
-//           }) 
-//         console.log("No Granted", language, platform, enabledCookie, positionUser.latitude, positionUser.longitude) 
-//       } else if(permissionStatus.state === "prompt") {
-//         console.log("No Prompt", language, platform, enabledCookie, positionUser)
-//       } else {
-//         console.log("No denied", language, platform, enabledCookie)
-//       }
-//       console.log(permissionStatus.state)
-//     }).catch(err => console.log(err))
-//   }
 }
 
 export default userInfo

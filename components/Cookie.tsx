@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react"
 import  { createPortal } from "react-dom"
 import userInfo  from "../scripts/user-info"
 
 function Cookie() {
-  const [mounted, setMounted ] = useState(false)
+  const [mounted, setMounted ] = useState(false);
+  const [localData, setLocalData] = useState<string | null>(null)
 
   useEffect(() => {
     setMounted(true)
+    setLocalData(localStorage.getItem("userData-formatter"))
   
     return () => setMounted(false)
   },[])
@@ -27,7 +29,7 @@ function Cookie() {
     }
   }
 
-  return mounted 
+  return (mounted  && !localData)
   ? createPortal(
     <div className="fixed h-full top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-slate-400 px-10 bg-opacity-75" >
       <div className="p-10 bg-slate-100 flex flex-col rounded-lg gap-3 text-lg border-solid border-gray-200 border-2">
