@@ -18,8 +18,20 @@ async function userInfo() {
   })
 
   await getLatLong 
-  //TODO: Cadastra no banco de dados
   localStorage.setItem("userData-formatter", JSON.stringify({language, platform, enabledCookie, positionUser, sizeScreen}))
+  
+  try {
+    const response = await fetch("/api/user", {
+        method: "POST",
+        body: JSON.stringify({ language, platform, enabledCookie, positionUser, sizeScreen })
+      })
+    return response
+  } catch (error) {
+    throw Error("Server Error")
+  } 
+  
+  
+  
 
 }
 

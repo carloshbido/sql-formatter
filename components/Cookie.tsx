@@ -13,7 +13,7 @@ function Cookie() {
     return () => setMounted(false)
   },[])
 
-  function handleAcceptAll(event: any) {
+  async function handleAcceptAll(event: any) {
     event.preventDefault();
     const buttonDescription = event.target.innerHTML
 
@@ -24,8 +24,12 @@ function Cookie() {
 
     if(buttonDescription === "Accept All") {
       setMounted(false)
-      userInfo()
-      return
+      try {
+        await userInfo()
+        return
+      }catch(err) {
+        console.log("erro ao cadastrar dados no Banco")
+      }
     }
   }
 
