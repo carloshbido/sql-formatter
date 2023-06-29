@@ -3,13 +3,10 @@
 import { useState } from "react"
 import { FaCopy, FaCheck } from 'react-icons/fa';
 
-import { TabOnFirstItem } from "@/scripts/tab-first-item"
-import jumpLine from "@/scripts/jump-line"
+import { TabOnFirstItem } from "@/scripts/tab-first-item";
+import jumpLine from "@/scripts/jump-line";
 
-import connectDb from "@/config/dbConn";
-connectDb().then(res => console.log(res)).catch(err => console.log(err))
-
-import Cookie from "@/components/Cookie"
+import Cookie from "@/components/Cookie";
 
 export default function Home() {
   const [query, setQuery] = useState("")
@@ -45,7 +42,7 @@ export default function Home() {
     <main className="flex items-center justify-between py-3 max-w-7xl m-auto px-5 xl:px-0">
       <form className="bg-emerald-50 p-3 rounded-lg drop-shadow-sm w-full" onSubmit={handleSubmit}>
         <div className="flex flex-col justify-items-start">
-          <div className="flex justify-between items-center mb-2">
+        <div className="flex justify-between items-center mb-2">
             <label htmlFor="sqlquery">Insert query below</label>
             <span 
               className="bg-emerald-300 px-6 py-2 rounded-lg cursor-pointer text-xs ease-in-out duration-100
