@@ -7,6 +7,7 @@ import { TabOnFirstItem } from "@/scripts/tab-first-item";
 import jumpLine from "@/scripts/jump-line";
 
 import Cookie from "@/components/Cookie";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   const [query, setQuery] = useState("")
@@ -39,44 +40,53 @@ export default function Home() {
 
 
   return (
-    <main className="flex items-center justify-between py-3 max-w-7xl m-auto px-5 xl:px-0">
-      <form className="bg-emerald-50 p-3 rounded-lg drop-shadow-sm w-full" onSubmit={handleSubmit}>
-        <div className="flex flex-col justify-items-start">
-        <div className="flex justify-between items-center mb-2">
-            <label htmlFor="sqlquery">Insert query below</label>
-            <span 
-              className="bg-emerald-300 px-6 py-2 rounded-lg cursor-pointer text-xs ease-in-out duration-100
-                       hover:text-white hover:bg-emerald-400"
-              onClick={() => setQuery("")}
-            >
-            Clear
-            </span>
-          </div>
-          <textarea
-            className="outline-slate-300 p-3 text-xs rounded-lg"
-            rows={20}
-            name="sqlquery" 
-            value={query}
-            onChange={handleSetQuery}>
-          </textarea>
-          <div className="flex justify-end items-center mt-4 gap-3">
-            <button 
-              onClick={() => {}} 
-              className="bg-slate-700 text-white px-6 py-2 rounded-lg hover:bg-opacity-90 ease-in-out duration-100"
-            >
-              APPLY FORMATTER
-            </button>
-            <span 
-              className="bg-emerald-900 text-white px-6 py-3 rounded-lg cursor-pointer ease-in-out duration-500 hover:bg-opacity-90"
-              onClick={handleCopyClipboard}
-            >
-              {copied ? <FaCheck/> : <FaCopy />}
-            </span>
-          </div>
-        </div>
-      </form>
+  <>
+    <Cookie/>
+    <div className="bg-slate-50">
+      
+      <Hero/>
 
-      <Cookie/>
-    </main>
+      <main className="flex items-center justify-between max-w-7xl m-auto px-5 xl:px-0">
+        <form className="p-3 rounded-lg w-full border border-solid border-gray-200 mb-3" onSubmit={handleSubmit} id="apply">
+          <div className="flex flex-col justify-items-start">
+          <div className="flex justify-between items-center mb-2">
+              <label htmlFor="sqlquery">Insert query below</label>
+              <span 
+                className="bg-slate-400 px-6 py-2 rounded-lg cursor-pointer text-xs ease-in-out duration-300 text-white
+                          hover:bg-emerald-400"
+                onClick={() => setQuery("")}
+              >
+              Clear
+              </span>
+            </div>
+            <textarea
+              className="outline-slate-300 p-3 text-xs rounded-lg"
+              rows={20}
+              name="sqlquery" 
+              value={query}
+              onChange={handleSetQuery}>
+            </textarea>
+            <div className="flex justify-end items-center mt-4 gap-3">
+              <button 
+                onClick={() => {}} 
+                className="bg-slate-700 text-white px-6 py-2 rounded-lg hover:bg-opacity-90 ease-in-out duration-100"
+              >
+                APPLY FORMATTER
+              </button>
+              <span 
+                className="bg-emerald-900 text-white px-6 py-3 rounded-lg cursor-pointer ease-in-out duration-500 hover:bg-opacity-90"
+                onClick={handleCopyClipboard}
+              >
+                {copied ? <FaCheck/> : <FaCopy />}
+              </span>
+            </div>
+          </div>
+        </form>
+
+        
+      </main>
+      <p className="max-w-7xl m-auto text-gray-500 py-4">Development By Carlos Bido</p>
+    </div>
+  </>
   )
 }

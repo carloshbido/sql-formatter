@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={"relative box-border " + inter.className}>
         <Nav/>
         {children}
-        <div id="cookieportal" />
+        <div id="cookieportal"/>
       </body>
     </html>
   )

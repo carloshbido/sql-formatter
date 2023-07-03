@@ -29,10 +29,6 @@ async function userInfo() {
   } catch (error) {
     throw Error("Server Error")
   } 
-  
-  
-  
-
 }
 
 export default userInfo
