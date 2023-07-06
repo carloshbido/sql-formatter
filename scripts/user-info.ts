@@ -7,27 +7,37 @@ async function userInfo() {
   const positionUser = {
     latitude: 0,
     longitude: 0
-  }
+  };
 
-  const getLatLong = new Promise((resolve) => {
-    navigator.geolocation?.getCurrentPosition(position => {
-      positionUser.latitude = position.coords.latitude
-      positionUser.longitude = position.coords.longitude
+  // TODO: Melhorar aqui
+  const getLatLong = new Promise(async (resolve) => {
+    const permission = await window.navigator.permissions.query({ name: 'geolocation' })
+
+    if(permission.state === "granted" ) {
+      navigator.geolocation?.getCurrentPosition(position => {
+        positionUser.latitude = position.coords.latitude
+        positionUser.longitude = position.coords.longitude
+        resolve(true)
+      }) 
+    } else {
+      positionUser.latitude = 0
+      positionUser.longitude = 0
       resolve(true)
-    }) 
+    }
   })
 
-  await getLatLong 
-  localStorage.setItem("userData-formatter", JSON.stringify({language, platform, enabledCookie, positionUser, sizeScreen}))
+  await getLatLong;
+
+  localStorage.setItem("userData-formatter", JSON.stringify({language, platform, enabledCookie, positionUser, sizeScreen}));
   
   try {
     const response = await fetch("/api/user", {
         method: "POST",
         body: JSON.stringify({ language, platform, enabledCookie, positionUser, sizeScreen })
       })
-    return response
+    return response;
   } catch (error) {
-    throw Error("Server Error")
+    throw Error("Server Error");
   } 
 }
 
